@@ -1,47 +1,62 @@
-class UnionFind():
-    # 初期化
-    def __init__(self, n):
-        self.par = [-1] * n
-        self.rank = [0] * n
-        self.siz = [1] * n
-
-    # 根を求める
-    def root(self, x):
-        if self.par[x] == -1:
-            return x # x が根の場合は x を返す
-        else:
-            self.par[x] = self.root(self.par[x]) # 経路圧縮
-            return self.par[x]
-
-    # x と y が同じグループに属するか (根が一致するか)
-    def issame(self, x, y):
-        return self.root(x) == self.root(y)
-
-    # x を含むグループと y を含むグループを併合する
-    def unite(self, x, y):
-        # x 側と y 側の根を取得する
-        rx = self.root(x)
-        ry = self.root(y)
-        if rx == ry:
-            return False # すでに同じグループのときは何もしない
-        # union by rank
-        if self.rank[rx] < self.rank[ry]: # ry 側の rank が小さくなるようにする
-            rx, ry = ry, rx
-        self.par[ry] = rx # ry を rx の子とする
-        if self.rank[rx] == self.rank[ry]: # rx 側の rank を調整する
-            self.rank[rx] += 1
-        self.siz[rx] += self.siz[ry] # rx 側の siz を調整する
-        return True
-
-    # x を含む根付き木のサイズを求める
-    def size(self, x):
-        return self.siz[self.root(x)]
+from collections import deque
+from collections import defaultdict
 
 N, M = map(int, input().split())
 graph = [[] for _ in range(N)]
-uf = UnionFind()
 for _ in range(M):
     a, b = map(int, input().split())
     a -= 1; b -= 1
     graph[a].append(b)
     graph[b].append(a)
+
+queue = deque()
+connected_num = defaultdict(int)
+visited = [False for _ in range(N)]
+for i in range(N):
+    if not visited[i]:
+        queue.append(i)
+        visited[i] = True
+        connected_num[i] += 1
+    while len(queue) != 0:
+        u = queue.popleft()
+        for v in graph[u]:
+            if not visited[v]:
+                queue.append(v)
+                visited[v] = True
+                connected_num[i] += 1
+
+ans = 0
+for c in connected_num.values():
+    ans += c * (c - 1) // 2
+ans -= M
+print(ans)
+
+# 解説(evima)
+import sys
+import pypyjit
+
+sys.setrecursionlimit(10**6)
+pypyjit.set_param("max_unroll_recursion=-1")
+
+N, M = map(int, input().split())
+g = [[] for _ in range(N)]
+for _ in range(M):
+    a, b = map(int, input().split())
+    g[a - 1].append(b - 1)
+    g[b - 1].append(a - 1)
+used = [False] * N
+
+def dfs(u):
+    used[u] = True
+    res = 1
+    for v in g[u]:
+        if not used[v]:
+            res += dfs(v)
+    return res
+
+ans = -M
+for i in range(N):
+    if not used[i]:
+        s = dfs(i)
+        ans += s * (s - 1) // 2
+print(ans)
