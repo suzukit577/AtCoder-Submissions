@@ -127,10 +127,10 @@ ans = []
 for i in range(1, N + 1):
     if A[i] != i:
         j = pos[i]
-        ans.append(min(i, j), max(i, j))
+        ans.append((min(i, j), max(i, j)))
         A[i], A[j] = A[j], A[i]
-        pos[A[i]] = j
-        pos[A[j]] = i
+        pos[A[j]] = j
+        pos[A[i]] = i
 
 print(len(ans))
 for a in ans:
