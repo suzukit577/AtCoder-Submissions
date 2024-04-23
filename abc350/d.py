@@ -8,7 +8,7 @@ for _ in range(M):
     a -= 1; b -= 1
     graph[a].append(b)
     graph[b].append(a)
-
+    
 queue = deque()
 connected_num = defaultdict(int)
 visited = [False for _ in range(N)]
