@@ -1,7 +1,19 @@
+# 公式解説 (尺取り法)
 N = int(input())
-A = sorted(list(map(int, input().split())))
-MOD = 10 ** 8
-ans = 0
+A = list(map(int, input().split()))
+A.sort()
+M = 10 ** 8
+R = N
+cnt, res = 0, 0
+for i in range(N):
+    R = max(R, i + 1)
+    while R - 1 > i and A[R - 1] + A[i] >= M:
+        R -= 1
+    cnt += N - R
+for i in range(N):
+    res += A[i] * (N - 1)
+res -= cnt * M
+print(res)
 
 # evima 解説
 N = int(input())
