@@ -1,10 +1,8 @@
 N = int(input())
-S = [0 for _ in range(N)]
-C = [0 for _ in range(N)]
+S, C = [""] * N, [0] * N
 for i in range(N):
-    s, c = input().split()
-    S[i] = s
-    C[i] = int(c)
+    S[i], C[i] = input().split()
+    C[i] = int(C[i])
 T = sum(C)
 S.sort()
 print(S[T % N])

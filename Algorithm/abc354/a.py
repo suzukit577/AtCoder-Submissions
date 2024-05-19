@@ -9,3 +9,12 @@ while True:
     if height > H:
         print(ans)
         exit()
+
+# evima 解説
+H = int(input())
+x = 0
+for i in range(99):
+    x += 2 ** i
+    if x > H:
+        print(i + 1)
+        break
