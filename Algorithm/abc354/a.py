@@ -18,3 +18,12 @@ for i in range(99):
     if x > H:
         print(i + 1)
         break
+
+# 公式解説
+H = int(input())
+ans = 0
+now = 0
+while now <= H:
+    now += 1 << ans
+    ans += 1
+print(ans)

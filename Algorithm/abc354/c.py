@@ -29,3 +29,18 @@ for a, c, i in p[::-1]:
         ans.append(i)
 print(len(ans))
 print(*sorted(ans))
+
+# 公式解説
+N = int(input())
+cards = []
+for i in range(N):
+    a, c = map(int, input().split())
+    cards.append((a, c, i + 1))
+cards.sort(key=lambda x: x[1])
+ans, v = [], 0
+for i in range(N):
+    if cards[i][0] > v:
+        v = cards[i][0]
+        ans.append(cards[i][2])
+print(len(ans))
+print(*sorted(ans))
