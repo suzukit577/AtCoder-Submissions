@@ -32,7 +32,7 @@ A = list()
 for _ in range(5):
     A.append(int(input()))
 P = [i for i in range(5)]
-final_answer = 10 ** 6
+final_answer = 10**6
 for p in itertools.permutations(P):
     ans = 0
     for i in range(5):
@@ -41,6 +41,7 @@ for p in itertools.permutations(P):
         ans += A[p[i]]
     final_answer = min(final_answer, ans)
 print(final_answer)
+
 
 # 公式解説-2 (最後に注文した方が良さそうなものを求める)
 def max_time(x: int) -> int:

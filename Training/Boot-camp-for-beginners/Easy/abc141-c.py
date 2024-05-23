@@ -5,7 +5,7 @@ for _ in range(Q):
     A = int(input())
     correct[A - 1] += 1
 for i in range(N):
-    points[i] -= (Q - correct[i])
+    points[i] -= Q - correct[i]
     print("Yes" if points[i] > 0 else "No")
 
 # 公式解説
