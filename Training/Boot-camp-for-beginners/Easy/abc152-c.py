@@ -9,3 +9,14 @@ for i in range(N):
     if min_list[i] >= P[i]:
         ans += 1
 print(ans)
+
+# ユーザ解説
+N = int(input())
+P = list(map(int, input().split()))
+mi = 10**6
+ans = 0
+for i in range(N):
+    mi = min(mi, P[i])
+    if mi == P[i]:
+        ans += 1
+print(ans)
