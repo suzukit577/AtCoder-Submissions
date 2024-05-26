@@ -29,9 +29,9 @@ for i in range(N - 1):
         dist = 0
         for k in range(D):
             dist += (X[i][k] - X[j][k]) ** 2
-            for pd in prime_factorization(dist):
-                if pd[1] % 2 != 0:
-                    break
-            else:
-                ans += 1
+        for p, d in prime_factorization(dist):
+            if p != 1 and d % 2 != 0:
+                break
+        else:
+            ans += 1
 print(ans)
