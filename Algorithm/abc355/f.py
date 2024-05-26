@@ -38,49 +38,14 @@ class UnionFind:
         return self.siz[self.root(x)]
 
 
-def kruskal(N, edges):
-    uf = UnionFind(N)
-    edges.sort(key=lambda x: x[2])
-    mst_cost = 0
-    mst_edges = []
-
-    for u, v, w in edges:
-        if not uf.issame(u, v):
-            uf.unite(u, v)
-            mst_cost += w
-            mst_edges.append((u, v, w))
-
-    return mst_cost, mst_edges
-
-
 N, Q = map(int, input().split())
-edges = []
-for _ in range(N - 1):
+uf = [UnionFind(N + 1) for i in range(10)]
+ans = 10 * N - 10
+for i in range(N - 1 + Q):
     a, b, c = map(int, input().split())
-    a -= 1
-    b -= 1
-    edges.append((a, b, c))
-
-queries = []
-for _ in range(Q):
-    u, v, w = map(int, input().split())
-    u -= 1
-    v -= 1
-    queries.append((u, v, w))
-
-mst_cost, mst_edges = kruskal(N, edges)
-uf = UnionFind(N)
-for u, v, w in mst_edges:
-    uf.unite(u, v)
-
-results = []
-current_mst_cost = mst_cost
-
-for u, v, w in queries:
-    if not uf.issame(u, v):
-        current_mst_cost += w
-        uf.unite(u, v)
-    results.append(current_mst_cost)
-
-for result in results:
-    print(result)
+    for j in range(c, 10):
+        if not uf[j].issame(a, b):
+            ans -= 1
+            uf[j].unite(a, b)
+    if i >= N - 1:
+        print(ans)
