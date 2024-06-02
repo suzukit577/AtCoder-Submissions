@@ -8,12 +8,12 @@ for _ in range(M):
     R.append(CAR[-1])
 
 ans = 0
-for mask in range(1 << N):
+for mask in range(1 << N):  # 0 の桁は偽物，1 の桁は本物
     ok = True
-    for i in range(M):
-        cnt = 0
+    for i in range(M):  # テスト結果確認
+        cnt_genuine = 0
         for a in A[i]:
-            cnt += (mask >> (a - 1)) & 1
-        ok &= (cnt >= K) == (R[i] == "o")
+            cnt_genuine += (mask >> (a - 1)) & 1
+        ok &= (cnt_genuine >= K) == (R[i] == "o")
     ans += ok
 print(ans)
