@@ -1,10 +1,7 @@
-from bisect import bisect_left
-
 N, M = map(int, input().split())
 A = sorted(list(map(int, input().split())))
 B = sorted(list(map(int, input().split())))
-ans = 0
-j = 0
+ans, j = 0, 0
 for b in B:
     while j < N and A[j] < b:
         j += 1
@@ -17,7 +14,7 @@ else:
     print(ans)
 
 
-# evima 解説 (平行二分探索木)
+# evima 解説 (平衡二分探索木)
 from sortedcontainers import SortedList
 
 N, M = map(int, input().split())
