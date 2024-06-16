@@ -3,6 +3,7 @@ K = int(input())
 C = list(map(int, input().split()))
 MOD = 998244353
 
+# 二項係数の計算のための階乗の前計算
 fact = [1] * (K + 1)
 for i in range(K):
     fact[i + 1] = fact[i] * (i + 1) % MOD
@@ -12,7 +13,7 @@ for i in range(K, 0, -1):
     ifact[i - 1] = ifact[i] * i % MOD
 
 
-# 二校係数の計算
+# 二項係数の計算
 def c(n, r):
     return fact[n] * ifact[r] % MOD * ifact[n - r] % MOD
 
