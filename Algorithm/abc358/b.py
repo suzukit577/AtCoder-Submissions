@@ -13,7 +13,7 @@ for a in ans:
 # evima 解説
 N, A = map(int, input().split())
 T = list(map(int, input().split()))
-pre = 0
+pre = 0  # 直前の人の購入完了時刻
 for t in T:
     u = max(t, pre) + A
     print(u)
