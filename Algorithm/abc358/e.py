@@ -1,23 +1,28 @@
+# evima 解説
 K = int(input())
 C = list(map(int, input().split()))
 MOD = 998244353
 
-# dp[i][j]: i番目までの文字で長さがjの文字列を作る方法の数
-dp = [[0] * (K + 1) for _ in range(27)]
-dp[0][0] = 1  # 空文字列は1通り存在する
+fact = [1] * (K + 1)
+for i in range(K):
+    fact[i + 1] = fact[i] * (i + 1) % MOD
+ifact = [1] * (K + 1)
+ifact[K] = pow(fact[K], -1, MOD)
+for i in range(K, 0, -1):
+    ifact[i - 1] = ifact[i] * i % MOD
 
-# 各文字についてDPを計算
-for i in range(1, 27):
+
+# 二校係数の計算
+def c(n, r):
+    return fact[n] * ifact[r] % MOD * ifact[n - r] % MOD
+
+
+# DP の計算
+dp = [[0] * (K + 1) for _ in range(len(C) + 1)]
+dp[0][0] = 1
+for i in range(len(C)):
     for j in range(K + 1):
-        dp[i][j] = dp[i - 1][j]  # 文字iを使わない場合
-
-        # 文字iを1回からC[i-1]回まで使う
-        for k in range(1, C[i - 1] + 1):
-            if j - k >= 0:
-                dp[i][j] += dp[i][j - k]
-                dp[i][j] %= MOD
-
-# 答えはdp[1]からdp[26]までの長さが1以上K以下の文字列の総和
-result = sum(dp[i][j] for i in range(1, 27) for j in range(1, K + 1)) % MOD
-
-print(result)
+        for k in range(min(C[i], K - j) + 1):
+            dp[i + 1][j + k] += dp[i][j] * c(j + k, k) % MOD
+            dp[i + 1][j + k] %= MOD
+print(sum(dp[-1][1:]) % MOD)
