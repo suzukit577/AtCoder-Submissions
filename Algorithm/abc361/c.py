@@ -1,14 +1,18 @@
 N, K = map(int, input().split())
 A = list(map(int, input().split()))
 A.sort()
-left, right = 0, N - 1
-ans = A[right] - A[left]
-for i in range(K):
-    pop_left, pop_right = A[right] - A[left + 1], A[right - 1] - A[left]
-    if pop_left <= pop_right:
-        ans = pop_left
-        left += 1
-    else:
-        ans = pop_right
-        right -= 1
+ans = 10**9
+for i in range(K + 1):
+    diff = A[i + N - K - 1] - A[i]
+    if diff < ans:
+        ans = diff
+print(ans)
+
+# evima 解説
+N, K = map(int, input().split())
+A = list(map(int, input().split()))
+A.sort()
+ans = 10**9
+for i in range(K + 1):
+    ans = min(ans, A[i + N - K - 1] - A[i])
 print(ans)
