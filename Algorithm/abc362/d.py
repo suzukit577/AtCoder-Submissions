@@ -5,16 +5,16 @@ import sys
 input = sys.stdin.readline
 
 
-def dijkstra(graph: list[list[int]], start: int) -> int:
+def dijkstra(graph: list[list[tuple[int, int]]], start: int) -> list[int]:
     """
     ダイクストラ法: O((V+E)log(V))
 
     入力:
-    graph (list[list[int]]): 隣接リスト,
+    graph (list[list[tuple[int, int]]]): 非負重み付き（無向/有向）グラフの隣接リスト,
     start (int): 開始ノード
 
     出力:
-    dist: 開始ノードから各ノードへの最短経路長からなるリスト
+    dist: 開始ノードから各ノード (0, 1, ..., V) への最短経路長からなるリスト
     """
     INF = 10**18
     dist = [INF] * len(graph)
