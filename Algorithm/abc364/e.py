@@ -2,6 +2,9 @@
 N, X, Y = map(int, input().split())
 INF = 10**9
 
+# dp[i][j][k]:
+# 料理 1, 2, ..., i の中から j 個の料理を選ぶとき、
+# 甘さの合計が k となるときのしょっぱさの合計の最小値
 dp = [[[INF] * (X + 1) for j in range(i + 1)] for i in range(N + 1)]
 dp[0][0][0] = 0
 for i in range(N):
