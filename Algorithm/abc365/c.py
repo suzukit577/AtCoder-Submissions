@@ -18,3 +18,26 @@ else:
         else:
             right = mid - 1
     print(right)
+
+
+# evima 解説
+N, M = map(int, input().split())
+A = list(map(int, input().split()))
+if sum(A) <= M:
+    print("infinite")
+    exit()
+
+
+def cond(x: int) -> bool:
+    s = sum(min(x, a) for a in A)
+    return s <= M
+
+
+ok, ng = 0, max(A)
+while ok + 1 < ng:
+    mi = (ok + ng) // 2
+    if cond(mi):
+        ok = mi
+    else:
+        ng = mi
+print(ok)

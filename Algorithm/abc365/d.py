@@ -13,3 +13,24 @@ for i in range(1, N + 1):
             if j == win_against[S[i - 1]]:
                 dp[i][j] += 1
 print(max(dp[-1]))
+
+
+# evima 解説
+N = int(input())
+S = input()
+INF = 10**9
+
+
+def score(x: int, y: int) -> int:
+    return 1 if (x - y) % 3 == 1 else 0 if x == y else -INF
+
+
+dp = [[-INF] * 3 for _ in range(N + 1)]
+dp[0][0] = dp[0][1] = dp[0][2] = 0
+for i in range(N):
+    y = {"R": 0, "P": 1, "S": 2}[S[i]]
+    for j in range(3):
+        for k in range(3):
+            if k != j:
+                dp[i + 1][k] = max(dp[i + 1][k], dp[i][j] + score(k, y))
+print(max(dp[N]))
