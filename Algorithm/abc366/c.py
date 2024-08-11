@@ -18,7 +18,6 @@ for _ in range(Q):
 # evima 解説
 Q = int(input())
 M = 10**6 + 1
-
 c = [0] * M
 k = 0
 for _ in range(Q):
@@ -35,3 +34,22 @@ for _ in range(Q):
             k -= 1
     else:
         print(k)
+
+# 公式解説
+q = int(input())
+cnt = [0] * 1000000
+ans = 0
+for i in range(q):
+    t, *x = map(int, input().split())
+    if t == 1:
+        x[0] -= 1
+        cnt[x[0]] += 1
+        if cnt[x[0]] == 1:
+            ans += 1
+    elif t == 2:
+        x[0] -= 1
+        cnt[x[0]] -= 1
+        if cnt[x[0]] == 0:
+            ans -= 1
+    else:
+        print(ans)
