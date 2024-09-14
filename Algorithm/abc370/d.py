@@ -1,4 +1,6 @@
 # evima 解説
+# https://atcoder.jp/contests/abc370/submissions/57494492
+
 from sortedcontainers import SortedList
 
 H, W, Q = map(int, input().split())
