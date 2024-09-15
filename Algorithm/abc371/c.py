@@ -16,7 +16,6 @@ for _ in range(MH):
 A = [[0] * N for _ in range(N - 1)]
 for i in range(N - 1):
     A[i] = [0] * (i + 1) + list(map(int, input().split()))
-print(A)
 min_cost = 10**12
 for perm in permutations(range(N)):
     cost = 0
