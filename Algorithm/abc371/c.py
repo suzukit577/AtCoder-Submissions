@@ -19,9 +19,8 @@ for i in range(N - 1):
 min_cost = 10**12
 for perm in permutations(range(N)):
     cost = 0
-    for i in range(N - 1):
+    for i in range(N):
         for j in range(i + 1, N):
-            if graph_G[perm[i]][perm[j]] != graph_H[i][j]:
-                cost += A[i][j]
+            cost += A[i][j] * (graph_G[perm[i]][perm[j]] != graph_H[i][j])
     min_cost = min(min_cost, cost)
 print(min_cost)
