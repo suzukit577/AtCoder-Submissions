@@ -1,4 +1,4 @@
-# original
+# Original
 from itertools import permutations
 from math import sqrt
 
@@ -32,7 +32,7 @@ for p in permutations(range(N)):
 print(segment_len / T + optim_move_len / S)
 
 
-# refactoring by ChatGPT
+# Refactoring by ChatGPT
 from itertools import permutations
 from math import sqrt
 
