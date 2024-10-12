@@ -88,7 +88,7 @@ def dist(l: tuple[int, int], r: tuple[int, int]) -> float:
 
 
 N, S, T = map(int, input().split())
-X, Y = [], []
+X, Y = [], []  # X[i]: 線分 i の端点, Y[i]: 線分 i のもう一方の端点
 for _ in range(N):
     A, B, C, D = map(int, input().split())
     X.append((A, B))
@@ -119,7 +119,10 @@ print(res)
 from math import sqrt
 
 N, S, T = map(int, input().split())
-X, Y = [0] * (2 * N + 1), [0] * (2 * N + 1)
+X, Y = (
+    [0] * (2 * N + 1),
+    [0] * (2 * N + 1),
+)  # X[i]: 頂点 i の x 座標, Y[i]: 頂点 i の y 座標
 for i in range(N):
     X[2 * i], Y[2 * i], X[2 * i + 1], Y[2 * i + 1] = map(int, input().split())
 dist = [[0] * (2 * N + 1) for _ in range(2 * N + 1)]
