@@ -26,8 +26,7 @@ for i in range(N):
         d = min(i + 1, j + 1, N - i, N - j)
         ni, nj = i, j
         for _ in range(d % 4):
-            ti, tj = nj, N - 1 - ni
-            ni, nj = ti, tj
+            ni, nj = nj, N - 1 - ni
         ans[ni][nj] = A[i][j]
 for a in ans:
     print("".join(a))
