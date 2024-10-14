@@ -1,6 +1,6 @@
 N = int(input())
 A = [list(input()) for _ in range(N)]
-ans = [["" for _ in range(N)] for _ in range(N)]
+ans = [[""] * N for _ in range(N)]
 for i in range(N):
     for j in range(N):
         k = min(i, j, N - 1 - i, N - 1 - j)
@@ -13,5 +13,21 @@ for i in range(N):
         else:
             new_i, new_j = i, j  # 回転させない
         ans[new_i][new_j] = A[i][j]
+for a in ans:
+    print("".join(a))
+
+
+# 公式解説
+N = int(input())
+A = [list(input()) for _ in range(N)]
+ans = [[""] * N for _ in range(N)]
+for i in range(N):
+    for j in range(N):
+        d = min(i + 1, j + 1, N - i, N - j)
+        ni, nj = i, j
+        for _ in range(d % 4):
+            ti, tj = nj, N - 1 - ni
+            ni, nj = ti, tj
+        ans[ni][nj] = A[i][j]
 for a in ans:
     print("".join(a))
