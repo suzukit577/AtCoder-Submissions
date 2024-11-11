@@ -1,21 +1,19 @@
+# 公式解説
 N, M = map(int, input().split())
 X = list(map(int, input().split()))
 A = list(map(int, input().split()))
-XA = sorted(zip(X, A))
-
-num_empty = []
-for i in range(M):
-    left = XA[i][0]
-    right = XA[i + 1][0] if i + 1 < M else N + 1
-    num_empty.append(right - left - 1)
-
-ans = 0
-for i in range(M):
-    x, a = XA[i]
-    required_empty = a - 1
-    available_empty = num_empty[i]
-    if available_empty < required_empty:
+XA = sorted(zip(X, A))  # X の値でソート
+sum_total, sum_idx = 0, 0
+for x, a in XA:
+    # もし現在の合計が x - 1 より小さい場合、目標に達しない
+    if sum_total < x - 1:
         print(-1)
-        exit()
-    ans += (required_empty * (required_empty + 1)) // 2
-print(ans)
+        break
+    sum_total += a
+    sum_idx += a * x
+else:
+    if sum_total != N:
+        print(-1)
+    else:
+        # 合計からインデックスの重みを引いた値を出力
+        print(N * (N + 1) // 2 - sum_idx)
