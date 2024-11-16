@@ -79,6 +79,6 @@ k_block = ones_blocks[K - 1]
 ans = list(S)
 for i in range(k_block[0], k_block[1] + 1):
     ans[i] = "0"
-for i in range(k_block[0], k_block[1] + 1):
-    ans[k_minus_1_block[1] + 1 + (i - k_block[0])] = "1"
+for i in range(k_block[1] - k_block[0] + 1):
+    ans[k_minus_1_block[1] + 1 + i] = "1"
 print("".join(ans))
