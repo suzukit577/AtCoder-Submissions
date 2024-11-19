@@ -1,4 +1,62 @@
-# TLE コード
+# submit
+N, K = map(int, input().split())
+S = input()
+ones_blocks = []
+i = 0
+while i < N:
+    if S[i] == "1":
+        start = i
+        while i < N and S[i] == "1":
+            i += 1
+        end = i - 1
+        ones_blocks.append((start, end))
+    else:
+        i += 1
+k_minus_1_block = ones_blocks[K - 2]
+k_block = ones_blocks[K - 1]
+ans = list(S)
+for i in range(k_block[0], k_block[1] + 1):
+    ans[i] = "0"
+for i in range(k_block[1] - k_block[0] + 1):
+    ans[k_minus_1_block[1] + 1 + i] = "1"
+print("".join(ans))
+
+
+# 公式解説
+N, K = map(int, input().split())
+S = input()
+# split
+idx = [0] + [i for i in range(1, N) if S[i - 1] != S[i]] + [N]
+splitted_S = [S[idx[i] : idx[i + 1]] for i in range(len(idx) - 1)]
+# swap (0 の塊と 1 の塊は交互に現れることに注意)
+if S[0] == "0":
+    kth_1_idx = 2 * K - 1
+else:
+    kth_1_idx = 2 * K - 2
+splitted_S[kth_1_idx - 1], splitted_S[kth_1_idx] = (
+    splitted_S[kth_1_idx],
+    splitted_S[kth_1_idx - 1],
+)
+# join
+T = "".join(splitted_S)
+print(T)
+
+
+# 別解 - 問題文に記述されている操作の実装
+N, K = map(int, input().split())
+K -= 1  # 0-indexed にする
+S = input()
+l = [i for i in range(N) if S[i] == "1" and (i == 0 or S[i - 1] == "0")]
+r = [i for i in range(N) if S[i] == "1" and (i == N - 1 or S[i + 1] == "0")]
+T = list(S)
+for i in range(r[K - 1] + 1, r[K - 1] + (r[K] - l[K]) + 2):
+    T[i] = "1"
+for i in range(r[K - 1] + (r[K] - l[K]) + 2, r[K] + 1):
+    T[i] = "0"
+print("".join(T))
+
+
+# Run Length Encoding
 from typing import Iterable, List, Tuple, TypeVar
 
 T = TypeVar("T")
@@ -38,53 +96,15 @@ N, K = map(int, input().split())
 S = input()
 rle_S = run_length_encode(S)
 new_rle_S = []
-N, cnt = len(rle_S), 0
-used = [False] * N
-for i in range(N):
-    if rle_S[i][0] == "1":
+cnt = 0
+for char, length in rle_S:
+    if char == "1":
         cnt += 1
-    if rle_S[i][0] == "1" and cnt == K - 1:
-        new_rle_S.append(rle_S[i])
-        used[i] = True
-        for j in range(i + 1, N):
-            if rle_S[j][0] == "1":
-                new_rle_S.append(rle_S[j])
-                cnt += 1
-                used[j] = True
-                break
-    elif not used[i]:
-        new_rle_S.append(rle_S[i])
-ans = ""
-for rle in new_rle_S:
-    ans += rle[0] * rle[1]
-print(ans)
-
-
-# AC コード
-N, K = map(int, input().split())
-S = input()
-ones_blocks = []
-i = 0
-while i < N:
-    if S[i] == "1":
-        start = i
-        while i < N and S[i] == "1":
-            i += 1
-        end = i - 1
-        ones_blocks.append((start, end))
+    if char == "1" and cnt == K:
+        popped_cl = new_rle_S.pop()
+        new_rle_S.append((char, length))
+        new_rle_S.append(popped_cl)
     else:
-        i += 1
-k_minus_1_block = ones_blocks[K - 2]
-k_block = ones_blocks[K - 1]
-ans = list(S)
-for i in range(k_block[0], k_block[1] + 1):
-    ans[i] = "0"
-for i in range(k_block[1] - k_block[0] + 1):
-    ans[k_minus_1_block[1] + 1 + i] = "1"
-print("".join(ans))
-
-
-# 公式解説
-
-
-# 別解 - 問題文に記述されている操作の実装
+        new_rle_S.append((char, length))
+ans = "".join(char * length for char, length in new_rle_S)
+print(ans)
