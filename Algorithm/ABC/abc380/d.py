@@ -20,3 +20,12 @@ for k in K:
         res_char = res_char.swapcase()
     ans.append(res_char)
 print(" ".join(ans))
+
+
+# 公式解説
+
+
+# ユーザー解説 - クエリあたりの演算回数を O(log log w) とする解法 by MMNMM
+
+
+# ユーザー解説 - 直接的な実装 by evima
