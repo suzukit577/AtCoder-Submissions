@@ -82,3 +82,9 @@ for i in range(k_block[0], k_block[1] + 1):
 for i in range(k_block[1] - k_block[0] + 1):
     ans[k_minus_1_block[1] + 1 + i] = "1"
 print("".join(ans))
+
+
+# 公式解説
+
+
+# 別解 - 問題文に記述されている操作の実装
