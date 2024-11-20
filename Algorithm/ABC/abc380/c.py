@@ -106,5 +106,5 @@ for char, length in rle_S:
         new_rle_S.append(popped_cl)
     else:
         new_rle_S.append((char, length))
-ans = "".join(char * length for char, length in new_rle_S)
-print(ans)
+for char, length in new_rle_S:
+    print(char * length, end="")
