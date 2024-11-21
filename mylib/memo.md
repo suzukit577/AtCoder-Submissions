@@ -1,3 +1,4 @@
+- 整理を進行中
 - vscodeのスニペットに書き溜めているライブラリをここに格納する
 - こちらも参考
   - [競プロライブラリのスニペット化作業の自動化](https://zenn.dev/kawagh/articles/library2snippets)
