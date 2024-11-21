@@ -1,5 +1,6 @@
 def popcount(x: int) -> int:
     """
+    整数 x の2進数表現においてビットが立っている桁の個数をカウント
     Examples:
     popcount(3)  == 2 (3  = 0b11)
     popcount(7)  == 3 (7  = 0b111)
