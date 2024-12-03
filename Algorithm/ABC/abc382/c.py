@@ -21,7 +21,7 @@ A = list(map(int, input().split()))
 B = list(map(int, input().split()))
 C = [A[0]] * N
 for i in range(1, N):
-    C[i] = min(A[i], C[i - 1])
+    C[i] = min(A[i], C[i - 1])  # 累積 min
 C = C[::-1]
 for b in B:  # O(M)
     idx = bisect_right(C, b)  # O(log N)
