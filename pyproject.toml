@@ -1,8 +1,8 @@
 [tool.poetry]
 name = "atcoder-submissions"
 version = "0.1.0"
-description = "AtCoder project"
-authors = ["suzukit577 <takumisuzuki869@gmail.com>"]
+description = "AtCoder submissions and practice"
+authors = ["suzukit577"]
 readme = "README.md"
 package-mode = false
 
