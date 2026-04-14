@@ -19,7 +19,7 @@ from collections import Counter
 
 N, Q = map(int, input().split())
 c = Counter(map(int, input().split()))
-print(N - sum(map(lambda x : x % 2, c.valus())))
+print(N - sum(map(lambda x: x % 2, c.valus())))
 
 # 公式解説
 N, Q = map(int, input().split())

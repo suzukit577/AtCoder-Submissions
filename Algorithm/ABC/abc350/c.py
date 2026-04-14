@@ -3,7 +3,7 @@
 # # def merge(arr, l, m, r):
 # #     global K
 # #     global ans
-    
+
 # #     n1 = m - l + 1
 # #     n2 = r - m
 
@@ -50,11 +50,10 @@
 # # if K != 0:
 # #     for a in ans:
 # #         print(*a)
-        
 
 
 # # def solve(N, A):
-    
+
 # #     return operations
 
 # # N = int(input())
@@ -81,7 +80,7 @@
 #     global count_flag
 #     global n
 #     global operations
-    
+
 #     if left == right:
 #         return A
 

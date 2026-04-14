@@ -1,7 +1,8 @@
 # これだと TLE する
 def solve(graph, ans_list):
     t, a, b = map(int, input().split())
-    a -= 1; b -= 1
+    a -= 1
+    b -= 1
     if t == 1:
         if b not in graph[a]:
             graph[a].add(b)
@@ -13,6 +14,7 @@ def solve(graph, ans_list):
             ans_list.append("Yes")
         else:
             ans_list.append("No")
+
 
 n, q = map(int, input().split())
 graph = [[] for _ in range(n)]

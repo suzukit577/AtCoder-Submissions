@@ -15,6 +15,7 @@ d_r = max(d_r-1, L_max + 1) となります。
 以上を適切に実装することでこの問題を解くことができます。
 計算量は O(N + M) となります。
 """
+
 N, M = map(int, input().split())
 d = [1 for _ in range(M + 1)]
 for _ in range(N):

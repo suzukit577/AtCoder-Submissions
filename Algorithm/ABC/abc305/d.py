@@ -13,7 +13,9 @@ A_j <= x <= A_{j+1} であるような j は二分探索を使って O(logN) 時
 f(x) = f(A_j) + (x - A_j) ((f(A_{j+1}) - f(A_j)) / (A_{j+1} - A_j)) の計算は定数時間で可能．
 よって，この問題を O(N + QlogN) 時間で解くことができる．
 """
+
 from bisect import bisect_right
+
 
 # f(x) := x 分までに何分寝たか
 def f(x: int) -> int:
@@ -22,6 +24,7 @@ def f(x: int) -> int:
         return fA[j]
     else:
         return int(fA[j] + ((fA[j + 1] - fA[j]) / (A[j + 1] - A[j])) * (x - A[j]))
+
 
 N = int(input())
 A = list(map(int, input().split()))

@@ -1,8 +1,10 @@
 import sys
+
 sys.setrecursionlimit(10**6)
 
 dx = [0, 0, 1, -1]
 dy = [1, -1, 0, 0]
+
 
 def dfs(i: int, j: int) -> None:
     seen[i][j] = True
@@ -17,17 +19,18 @@ def dfs(i: int, j: int) -> None:
             continue
         dfs(ni, nj)
 
+
 H, W = map(int, input().split())
 S = [input() for _ in range(H)]
-if S[0][0] != 's':
-    print('No')
+if S[0][0] != "s":
+    print("No")
     exit()
 next = dict()
-next['s'] = 'n'
-next['n'] = 'u'
-next['u'] = 'k'
-next['k'] = 'e'
-next['e'] = 's'
+next["s"] = "n"
+next["n"] = "u"
+next["u"] = "k"
+next["k"] = "e"
+next["e"] = "s"
 seen = [[False] * W for _ in range(H)]
 dfs(0, 0)
-print('Yes' if seen[H - 1][W - 1] else 'No')
+print("Yes" if seen[H - 1][W - 1] else "No")

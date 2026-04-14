@@ -12,7 +12,7 @@ else:
 
 # 解説
 N = int(input())
-num_list = [2 ** i for i in range(7)]
+num_list = [2**i for i in range(7)]
 for num in num_list[::-1]:
     if num <= N:
         print(num)

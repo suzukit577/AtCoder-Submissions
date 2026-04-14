@@ -1,23 +1,24 @@
 N = int(input())
 S = input()
-t = S.count('T')
-a = S.count('A')
+t = S.count("T")
+a = S.count("A")
 if t > a:
-    print('T')
+    print("T")
 elif a > t:
-    print('A')
+    print("A")
 else:
-    tt = 0; aa = 0
+    tt = 0
+    aa = 0
     for i in range(N):
-        if S[i] == 'T':
+        if S[i] == "T":
             tt += 1
-        if S[i] == 'A':
+        if S[i] == "A":
             aa += 1
         if tt == t:
-            print('T')
+            print("T")
             exit()
         if aa == a:
-            print('A')
+            print("A")
             exit()
 
 # 公式解説
@@ -26,18 +27,18 @@ S = input()
 t = 0
 a = 0
 for i in range(N):
-    if S[i] == 'T':
+    if S[i] == "T":
         t += 1
     else:
         a += 1
 if t > a:
-    print('T')
+    print("T")
 elif t < a:
-    print('A')
-elif S[-1] == 'A':
-    print('T')
+    print("A")
+elif S[-1] == "A":
+    print("T")
 else:
-    print('A')
+    print("A")
 
 # ユーザー解説
 N = int(input())
@@ -45,13 +46,13 @@ S = input()
 t = 0
 a = 0
 for s in S:
-    if s == 'T':
+    if s == "T":
         t += 1
-    if s == 'A':
+    if s == "A":
         a += 1
     if t == (N + 1) // 2:
-        print('T')
+        print("T")
         exit()
     if a == (N + 1) // 2:
-        print('A')
+        print("A")
         exit()

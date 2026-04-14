@@ -11,6 +11,7 @@ def check_bingo(bingo: list[list[bool]]) -> bool:
     else:
         return False
 
+
 A = [list(map(int, input().split())) for _ in range(3)]
 N = int(input())
 bingo = [[False] * 3 for _ in range(3)]
@@ -21,6 +22,6 @@ for i in range(N):
             if A[j][k] == b[i]:
                 bingo[j][k] = True
 if check_bingo(bingo):
-        print('Yes')
+    print("Yes")
 else:
-    print('No')
+    print("No")

@@ -6,10 +6,12 @@ deg = [0] * n
 for _ in range(m):
     a, b, c, d = input().split()
     a, c = int(a), int(c)
-    a -= 1; c -= 1
+    a -= 1
+    c -= 1
     graph[a].append(c)
     graph[c].append(a)
-    deg[a] += 1; deg[c] += 1
+    deg[a] += 1
+    deg[c] += 1
 x, y = 0, 0
 used = [False for _ in range(n)]
 for i in range(n):

@@ -8,15 +8,16 @@ def rle(s: str) -> list:
         list: list of tuple which elements are character in given string and number of it
     """
     n = len(s)
-    ans = [] # 圧縮後のリスト
-    l = 0 # 始点
+    ans = []  # 圧縮後のリスト
+    l = 0  # 始点
     while l < n:
         r = l + 1
-        while r < n and s[l] == s[r]: # 異なる文字になるまで進む
+        while r < n and s[l] == s[r]:  # 異なる文字になるまで進む
             r += 1
-        ans.append((s[l], r - l)) # 文字, 連続する個数
-        l = r # 連続しなかった文字から探索を開始
+        ans.append((s[l], r - l))  # 文字, 連続する個数
+        l = r  # 連続しなかった文字から探索を開始
     return ans
+
 
 from itertools import groupby
 
@@ -41,7 +42,7 @@ for flip in range(2):
     # 極大な右ダンゴ文字列のレベルを列挙する
     level = 0
     for i in range(N):
-        if S[i] == '-':
+        if S[i] == "-":
             # '-' に対応する極大な右ダンゴ列のレベルは，直前までの 'o' の個数
             ans = max(ans, level)
             level = 0
@@ -55,4 +56,4 @@ else:
 
 # 原案者の実装
 N, S = input(), input()
-print(max(map(len, S.split('-'))) if 'o' in S and '-' in S else -1)
+print(max(map(len, S.split("-"))) if "o" in S and "-" in S else -1)

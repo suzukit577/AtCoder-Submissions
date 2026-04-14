@@ -1,9 +1,11 @@
 N = int(input())
-S = []; A = []
+S = []
+A = []
 for _ in range(N):
     s, a = input().split()
     a = int(a)
-    S.append(s); A.append(a)
+    S.append(s)
+    A.append(a)
 n = A.index(min(A))
 for i in range(n, N):
     print(S[i])
@@ -17,10 +19,12 @@ for i in range(n):
 人 p 自身を 0 番目と起算した時の，人 p から時計回りで i 番目の人の番号は (p + i) mod N と表すことができる．
 """
 N = int(input())
-S = []; A = []
+S = []
+A = []
 for _ in range(N):
     s, a = input().split()
-    S.append(s); A.append(int(a))
+    S.append(s)
+    A.append(int(a))
 p = A.index(min(A))
 for i in range(N):
     print(S[(p + i) % N])

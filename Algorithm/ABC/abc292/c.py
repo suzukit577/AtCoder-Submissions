@@ -15,9 +15,10 @@ def make_divisors(n):
         i += 1
     return lower_divisors + upper_divisors[::-1]
 
+
 n = int(input())
 ans = 0
-for ab in range(1,n):
+for ab in range(1, n):
     cd = n - ab
     div_ab = make_divisors(ab)
     div_cd = make_divisors(cd)

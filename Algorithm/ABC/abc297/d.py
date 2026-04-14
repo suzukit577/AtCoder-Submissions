@@ -43,7 +43,7 @@ while a != b:
         a, b = b, a
     # b が a の倍数なら b - a を b//a - 1 回繰り返して終了
     if b % a == 0:
-        ans += b//a - 1
+        ans += b // a - 1
         b = a
     # そうでないなら, b - a を b//a 回繰り返す
     else:

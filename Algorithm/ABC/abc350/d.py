@@ -5,10 +5,11 @@ N, M = map(int, input().split())
 graph = [[] for _ in range(N)]
 for _ in range(M):
     a, b = map(int, input().split())
-    a -= 1; b -= 1
+    a -= 1
+    b -= 1
     graph[a].append(b)
     graph[b].append(a)
-    
+
 queue = deque()
 connected_num = defaultdict(int)
 visited = [False for _ in range(N)]
@@ -46,6 +47,7 @@ for _ in range(M):
     g[b - 1].append(a - 1)
 used = [False] * N
 
+
 def dfs(u):
     used[u] = True
     res = 1
@@ -53,6 +55,7 @@ def dfs(u):
         if not used[v]:
             res += dfs(v)
     return res
+
 
 ans = -M
 for i in range(N):

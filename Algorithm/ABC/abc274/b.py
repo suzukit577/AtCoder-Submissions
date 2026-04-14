@@ -1,9 +1,10 @@
 def count_box(lst):
     cnt = 0
     for i in range(len(lst)):
-        if lst[i] == '#':
+        if lst[i] == "#":
             cnt += 1
     return cnt
+
 
 h, w = map(int, input().split())
 c = [input() for _ in range(h)]

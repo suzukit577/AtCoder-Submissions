@@ -12,7 +12,7 @@ def can_win(cards):
             for j in range(i + 1, n):
                 if state[i][0] == state[j][0] or state[i][1] == state[j][1]:
                     # 新しい状態を構築
-                    new_state = state[:i] + state[i + 1:j] + state[j + 1:]
+                    new_state = state[:i] + state[i + 1 : j] + state[j + 1 :]
                     if not dfs(new_state):
                         return True  # 次の状態で相手が負けるなら勝てる
 
@@ -21,6 +21,7 @@ def can_win(cards):
     # 初期状態のカードのペア
     initial_state = tuple((A[i], B[i]) for i in range(N))
     return dfs(initial_state)
+
 
 # 入力の読み取り
 N = int(input())

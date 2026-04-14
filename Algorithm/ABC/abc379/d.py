@@ -22,8 +22,8 @@ from collections import deque
 
 Q = int(input())
 queue = deque()  # 植物が植えられたクエリの番号を管理するキュー
-height = [0] * (
-    Q + 1
+height = (
+    [0] * (Q + 1)
 )  # height[i]: 最初に植物が植えられて、それが収穫されずに i 番目のクエリまで処理された場合の高さ
 for i in range(Q):
     query = input().split()

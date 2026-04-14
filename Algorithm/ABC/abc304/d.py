@@ -4,8 +4,10 @@ from bisect import bisect
 
 W, H = map(int, input().split())
 N = int(input())
-p = [0] * N; q = [0] * N
-for i in range(N): p[i], q[i] = map(int, input().split())
+p = [0] * N
+q = [0] * N
+for i in range(N):
+    p[i], q[i] = map(int, input().split())
 A = int(input())
 a = list(map(int, input().split()))
 a.append(W)

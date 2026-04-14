@@ -5,7 +5,7 @@ s = input()
 x = 0
 y = 0
 used = set()
-used.add((0,0))
+used.add((0, 0))
 for i in range(n):
     if s[i] == "R":
         x += 1

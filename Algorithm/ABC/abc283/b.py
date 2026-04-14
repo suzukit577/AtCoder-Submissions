@@ -1,5 +1,5 @@
 n = int(input())
-a = list(map(int,input().split()))
+a = list(map(int, input().split()))
 q = int(input())
 query = [list(map(int, input().split())) for i in range(q)]
 for i in range(q):

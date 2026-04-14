@@ -2,7 +2,7 @@
 N = int(input())
 A = list(map(int, input().split()))
 A.sort()
-M = 10 ** 8
+M = 10**8
 R = N
 cnt, res = 0, 0
 for i in range(N):
@@ -18,7 +18,7 @@ print(res)
 # evima 解説
 N = int(input())
 A = list(map(int, input().split()))
-M = 10 ** 8
+M = 10**8
 
 cnt = [0] * (M + 1)
 for a in A:

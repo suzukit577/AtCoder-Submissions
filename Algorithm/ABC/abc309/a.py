@@ -1,15 +1,15 @@
 A, B = map(int, input().split())
 if A == 3 or A == 6:
-    print('No')
+    print("No")
 else:
     if B == A + 1:
-        print('Yes')
+        print("Yes")
     else:
-        print('No')
+        print("No")
 
 # 公式解説
 A, B = map(int, input().split())
-print('Yes' if A % 3 != 0 and A + 1 == B else 'No')
+print("Yes" if A % 3 != 0 and A + 1 == B else "No")
 
 # 別解
 # A, B が書かれたマスがそれぞれ上から何行目, 左から何列目にあるか求める
@@ -17,4 +17,4 @@ print('Yes' if A % 3 != 0 and A + 1 == B else 'No')
 A, B = map(int, input().split())
 ra, ca = (A - 1) // 3, (A - 1) % 3
 rb, cb = (B - 1) // 3, (B - 1) % 3
-print('Yes' if ra == rb and ca + 1 == cb else 'No')
+print("Yes" if ra == rb and ca + 1 == cb else "No")

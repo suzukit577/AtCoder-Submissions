@@ -4,5 +4,6 @@ def f(k: int) -> int:
     else:
         return k * f(k - 1)
 
+
 N = int(input())
 print(f(N))

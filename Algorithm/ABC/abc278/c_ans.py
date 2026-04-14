@@ -6,11 +6,11 @@ ans_list = []
 for _ in range(q):
     t, a, b = map(int, input().split())
     if t == 1:
-        follows[(a,b)] = 1
+        follows[(a, b)] = 1
     elif t == 2:
-        follows[(a,b)] = 0
+        follows[(a, b)] = 0
     else:
-        if follows[(a,b)] == 1 and follows[(b,a)] == 1:
+        if follows[(a, b)] == 1 and follows[(b, a)] == 1:
             ans_list.append("Yes")
         else:
             ans_list.append("No")

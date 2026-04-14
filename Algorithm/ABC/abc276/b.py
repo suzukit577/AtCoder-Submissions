@@ -6,6 +6,6 @@ for _ in range(m):
     a[u - 1].append(v)
     a[v - 1].append(u)
 
-for (i, v) in enumerate(a):
+for i, v in enumerate(a):
     v.sort()
     print(len(v), *v)

@@ -3,9 +3,9 @@ n = int(input())
 s = list(input())
 while True:
     fin = 1
-    for i in range(len(s)-1):
-        if s[i] == "n" and s[i+1] == "a":
-            s.insert(i+1, "y")
+    for i in range(len(s) - 1):
+        if s[i] == "n" and s[i + 1] == "a":
+            s.insert(i + 1, "y")
             fin = 0
             break
     if fin:

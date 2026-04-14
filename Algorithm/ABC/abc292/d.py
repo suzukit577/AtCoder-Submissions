@@ -4,13 +4,15 @@ n, m = map(int, input().split())
 graph = [[] for _ in range(n)]
 for _ in range(m):
     u, v = map(int, input().split())
-    u -= 1; v -= 1
+    u -= 1
+    v -= 1
     graph[u].append(v)
     graph[v].append(u)
 used = [False for _ in range(n)]
 ans = True
 for i in range(n):
-    nv = 0; ne = 0
+    nv = 0
+    ne = 0
     if not used[i]:
         queue = deque()
         used[i] = True

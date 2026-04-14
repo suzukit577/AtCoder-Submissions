@@ -7,7 +7,7 @@ for _ in range(q):
         st.add(cnt)
         cnt += 1
     elif e == "3":
-        for m in st: # print(min(st))
+        for m in st:  # print(min(st))
             print(m)
             break
     else:
@@ -16,7 +16,7 @@ for _ in range(q):
 
 # 解放2: O(q)
 n, q = map(int, input().split())
-gone = [0] * (n+1)
+gone = [0] * (n + 1)
 ans = 1
 for _ in range(q):
     event = input()
@@ -26,6 +26,6 @@ for _ in range(q):
         c, x = event.split()
         gone[int(x)] = 1
     else:
-        while(gone[ans]):
+        while gone[ans]:
             ans += 1
         print(ans)
