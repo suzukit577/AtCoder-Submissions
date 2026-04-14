@@ -1,7 +1,19 @@
-*.DS_Store
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+
+# 仮想環境
+.venv/
+
+# VSCode
 .vscode/
+
+# Poetry
 poetry.toml
-poetry.lock
-pyproject.toml
+
+# プロジェクト固有
 PAST/
-Heuristic/*
+Heuristic/

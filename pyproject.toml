@@ -1,0 +1,54 @@
+[tool.poetry]
+name = "atcoder-submissions"
+version = "0.1.0"
+description = "AtCoder project"
+authors = ["suzukit577 <takumisuzuki869@gmail.com>"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.13"
+numpy = "^2.2.1"
+sortedcontainers = "^2.4.0"
+ac-library-python = "^0.1.0"
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.5.0"
+black = "^24.0.0"
+mypy = "^1.10.0"
+
+# -----------------
+# Ruff
+# -----------------
+[tool.ruff]
+line-length = 88
+target-version = "py313"
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+ignore = ["E501"]
+
+[tool.ruff.format]
+quote-style = "double"
+
+# -----------------
+# Black
+# -----------------
+[tool.black]
+line-length = 100
+target-version = ["py313"]
+
+# -----------------
+# mypy
+# -----------------
+[tool.mypy]
+python_version = "3.13"
+ignore_missing_imports = true
+strict = false
+warn_unused_configs = true
+warn_return_any = true
+warn_unused_ignores = true
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
