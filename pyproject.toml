@@ -1,21 +1,21 @@
-[tool.poetry]
+[project]
 name = "atcoder-submissions"
 version = "0.1.0"
 description = "AtCoder submissions and practice"
-authors = ["suzukit577"]
-readme = "README.md"
-package-mode = false
+requires-python = ">=3.13"
 
-[tool.poetry.dependencies]
-python = "^3.13"
-numpy = "^2.2.1"
-sortedcontainers = "^2.4.0"
-ac-library-python = "^0.1.0"
+dependencies = [
+  "numpy>=2.2.1",
+  "sortedcontainers>=2.4.0",
+  "ac-library-python>=0.1.0"
+]
 
-[tool.poetry.group.dev.dependencies]
-ruff = "^0.5.0"
-black = "^24.0.0"
-mypy = "^1.10.0"
+[dependency-groups]
+dev = [
+  "ruff>=0.5.0",
+  "black>=24.0.0",
+  "mypy>=1.10.0"
+]
 
 # -----------------
 # Ruff
@@ -48,7 +48,3 @@ strict = false
 warn_unused_configs = true
 warn_return_any = true
 warn_unused_ignores = true
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
