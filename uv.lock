@@ -16,7 +16,7 @@ wheels = [
 ]
 
 [[package]]
-name = "atcoder-submissions"
+name = "atcoder-submissions-and-practice"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [

@@ -1,5 +1,5 @@
 [project]
-name = "atcoder-submissions"
+name = "atcoder-submissions-and-practice"
 version = "0.1.0"
 description = "AtCoder submissions and practice"
 requires-python = ">=3.13"
